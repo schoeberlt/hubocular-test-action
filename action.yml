@@ -5,6 +5,9 @@ inputs:
   repo-name:  # id of input
     description: 'Repo name'
     required: true
+  github-token:
+    description: "Token to use for GitHub"
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
