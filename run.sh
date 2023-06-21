@@ -73,5 +73,3 @@ echo
 echo "Finished"
 echo
 
-/usr/bin/env bash
-
