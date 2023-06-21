@@ -1,4 +1,4 @@
-FROM schoeberlt/binocular:latest
+FROM schoeberlt/gitocular:latest
 
 # COPY install.sh install.sh
 
