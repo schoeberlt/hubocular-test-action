@@ -1,5 +1,9 @@
 on: [push]
 
+env:
+    REGISTRY: docker.io
+    USER_NAME: schoeberlt
+
 jobs:
   test-action:
     runs-on: ubuntu-latest
@@ -8,6 +12,12 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+            registry: ${{ env.REGISTRY }}
+            username: ${{ env.USER_NAME }}
+            password: ${{ secrets.DOCKER_PAT }}
       - name: test  mining action
         uses: ./ # Uses an action in the root directory
         id: mine
