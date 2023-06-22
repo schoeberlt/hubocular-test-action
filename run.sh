@@ -18,8 +18,8 @@ BINOCULARRC=".binocularrc"
 echo
 echo "Cloning target repository $REPO_NAME"
 echo
-mkdir target
-cd target
+mkdir /target
+cd /target
 git clone $REPO
 
 echo
@@ -45,7 +45,7 @@ echo
 echo "Starting arangodb service"
 echo
 
-../../arangodb3-linux-3.11.1_x86_64/bin/arangod --server.endpoint tcp://0.0.0.0:8530 --database.directory standalone &
+/arangodb3-linux-3.11.1_x86_64/bin/arangod --server.endpoint tcp://0.0.0.0:8530 --database.directory standalone &
 
 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8530/_api/version)" != "401" ]]; do sleep 5; done'
 
@@ -55,7 +55,10 @@ echo "Mining repository and starting front end"
 echo
 
 cd /install/Binocular
-node $APP_NAME.js /target/$REPO_NAME & npm run dev-frontend
+
+echo "target: /target/$REPO_NAME"
+
+node $APP_NAME.js "/target/$REPO_NAME"
 
 echo
 echo "Creating offline artifact from ArangoDB exports"
@@ -72,4 +75,3 @@ echo
 echo
 echo "Finished"
 echo
-
