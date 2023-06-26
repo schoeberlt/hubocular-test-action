@@ -1,8 +1,8 @@
-FROM node:18
+FROM schoeberlt/gitocular:latest
 
-COPY install.sh install.sh
+# COPY install.sh install.sh
 
-RUN ./install.sh
+# RUN ./install.sh
 
 COPY run.sh run.sh
 
