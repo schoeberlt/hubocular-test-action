@@ -6,6 +6,10 @@ REPO_NAME_GIT="${REPO##*/}"
 REPO_NAME="${REPO_NAME_GIT%.*}"
 
 echo
+echo "Welcome to Hubocular, Binocular as a GitHub Action in your CI/CD!"
+echo
+
+echo
 echo "Got repo $REPO_NAME"
 echo
 
@@ -65,6 +69,9 @@ echo "Creating offline artifact from ArangoDB exports"
 echo
 
 npm run build
+
+echo
+echo "build done"
 
 cp -r dist /output/
 
