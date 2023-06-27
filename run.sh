@@ -70,6 +70,8 @@ echo
 
 npm run build
 
+/arangodb3-linux-3.11.1_x86_64/bin/arangod stop
+
 echo
 echo "build done"
 
