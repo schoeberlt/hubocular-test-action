@@ -62,7 +62,7 @@ cd /install/Binocular
 
 echo "target: /target/$REPO_NAME"
 
-node $APP_NAME.js "/target/$REPO_NAME"
+node $APP_NAME.js --no-open --no-server "/target/$REPO_NAME"
 
 echo
 echo "Creating offline artifact from ArangoDB exports"
@@ -70,7 +70,7 @@ echo
 
 npm run build
 
-/arangodb3-linux-3.11.1_x86_64/bin/arangod stop
+
 
 echo
 echo "build done"
@@ -80,6 +80,9 @@ cp -r dist /output/
 echo
 echo "Copied dist to host"
 echo
+
+
+/arangodb3-linux-3.11.1_x86_64/bin/arangod stop
 
 echo
 echo "Finished"
