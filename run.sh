@@ -75,7 +75,7 @@ npm run build
 echo
 echo "build done"
 
-cp -r dist /output/
+cp -r dist /github/workspace/output/
 
 echo
 echo "Copied dist to host"
