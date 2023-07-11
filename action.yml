@@ -55,11 +55,8 @@ runs:
       run: npm run build
       shell: bash
 
-    - name: Publish artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: binocular_ui
-        path: dist/
+    - name: Copy build artifacts
+      run: cp dist /home/runner/dist 
 
     - name: Checkout Repository
       uses: actions/checkout@v3
