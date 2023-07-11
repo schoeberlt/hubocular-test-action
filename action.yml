@@ -15,10 +15,10 @@ runs:
   steps:
     - run: echo "test" >> test.txt
       shell: bash
-    - name: Publish artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: binocular_ui
-          path: ./test.txt
+    #- name: Publish artifact
+     #   uses: actions/upload-artifact@v3
+      #  with:
+       #   name: binocular_ui
+        #  path: ./test.txt
   args:
     - ${{ inputs.repo-name }}
