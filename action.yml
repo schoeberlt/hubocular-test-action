@@ -9,17 +9,7 @@ inputs:
     description: "Token to use for GitHub"
     required: true
 runs:
-  #using: 'docker'
-  #image: 'Dockerfile'
   using: 'composite'
-  #services:
-
-   #   arangodb:
-    #    image: arangodb:3.7
-     #   ports:  
-          #- 8529:8529
-      #  env: 
-       #   ARANGO_ROOT_PASSWORD: openSesame
   steps:
 
     - name: Checkout Repository
@@ -64,10 +54,3 @@ runs:
     - name: Build
       run: npm run build
       shell: bash
-    #- name: Publish artifact
-     #   uses: actions/upload-artifact@v3
-      #  with:
-       #   name: binocular_ui
-        #  path: ./test.txt
-  #args:
-   # - ${{ inputs.repo-name }}
