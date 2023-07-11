@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: binocular_ui
-          path: ./
+          path: dist/
       # Use the output from the `hello` step
       #- name: Get the output time
         #run: echo "The time was ${{ steps.hello.outputs.time }}"
