@@ -12,14 +12,14 @@ runs:
   #using: 'docker'
   #image: 'Dockerfile'
   using: 'composite'
-  services:
+  #services:
 
-      arangodb:
-        image: arangodb:3.7
-        ports:  
+   #   arangodb:
+    #    image: arangodb:3.7
+     #   ports:  
           - 8529:8529
-        env: 
-          ARANGO_ROOT_PASSWORD: openSesame
+      #  env: 
+       #   ARANGO_ROOT_PASSWORD: openSesame
   steps:
 
     - name: Checkout Repository
@@ -41,6 +41,7 @@ runs:
 
     - name: Rename binocularrc
       run: mv .binocularrc_ci .binocularrc 
+      shell: bash
 
     - name: Set node version
       uses: actions/setup-node@v3
@@ -50,12 +51,15 @@ runs:
 
     - name: Install dependencies
       run: npm ci
+      shell: bash
 
     - name: Run binocular
       run: node binocular.js --no-open --no-server ./test
+      shell: bash
 
     - name: Build
       run: npm run build
+      shell: bash
     #- name: Publish artifact
      #   uses: actions/upload-artifact@v3
       #  with:

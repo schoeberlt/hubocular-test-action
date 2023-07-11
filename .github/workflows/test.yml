@@ -8,6 +8,13 @@ env:
 jobs:
   test-action:
     runs-on: ubuntu-latest
+    services:
+      arangodb:
+          image: arangodb:3.7
+          ports:  
+              - 8529:8529
+          env: 
+            ARANGO_ROOT_PASSWORD: openSesame
     steps:
       # To use this repository's private action,
       # you must check out the repository
