@@ -20,5 +20,5 @@ runs:
       #  with:
        #   name: binocular_ui
         #  path: ./test.txt
-  args:
-    - ${{ inputs.repo-name }}
+  #args:
+   # - ${{ inputs.repo-name }}
