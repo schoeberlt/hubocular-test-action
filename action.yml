@@ -55,6 +55,5 @@ runs:
       run: npm run build
       shell: bash
 
-    - name: Cleanup
-      run: rm Dockerfile
-      shell: bash
+    - name: Checkout Repository
+      uses: actions/checkout@v3
