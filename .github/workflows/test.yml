@@ -24,9 +24,3 @@ jobs:
           repo-name: Binocular
           branch-name: develop
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: binocular_ui
-          path: /home/runner/dist/
