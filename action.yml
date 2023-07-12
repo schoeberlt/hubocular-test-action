@@ -56,7 +56,7 @@ runs:
       shell: bash
 
     - name: Copy build artifacts
-      run: cp dist /home/runner/dist
+      run: cp -ar dist /home/runner/dist
       shell: bash 
 
     - name: Checkout Repository
