@@ -1,11 +1,11 @@
 # action.yml
 name: 'Hubocular'
 description: 'Mine your repo in you Actions'
+branding:
+  icon: 'bar-chart-2'
+  color: 'green'
 inputs:
-  user-name: 
-    description: 'User name'
-    required: true
-  repo-name:
+  repository:
     description: 'Repo name'
     required: true
   branch-name:
@@ -21,14 +21,14 @@ runs:
     - name: Checkout Repository
       uses: actions/checkout@v3
       with:
-        repository: ${{ inputs.user-name }}/${{ inputs.repo-name }}
+        repository: INSO-TUWien/Binocular
         ref: develop
 
     - name: Checkout Repository to scan
       uses: actions/checkout@v3
       with:
-        repository: INSO-TUWien/Binocular
-        ref: develop
+        repository: ${{ inputs.repository }}
+        ref: ${{ inputs.branch-name }}
         fetch-depth: 0
         path: test
 
