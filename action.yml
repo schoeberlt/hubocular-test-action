@@ -57,7 +57,13 @@ runs:
 
     - name: Copy build artifacts
       run: cp -ar dist /home/runner/dist
-      shell: bash 
+      shell: bash
+
+    - name: Publish artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: binocular_ui
+          path: /home/runner/dist/
 
     - name: Checkout Repository
       uses: actions/checkout@v3
