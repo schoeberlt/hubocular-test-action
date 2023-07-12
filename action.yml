@@ -1,12 +1,18 @@
 # action.yml
 name: 'Hubocular'
-description: 'Mine your repo in you Actioins'
+description: 'Mine your repo in you Actions'
 inputs:
-  repo-name:  # id of input
+  user-name: 
+    description: 'User name'
+    required: true
+  repo-name:
     description: 'Repo name'
     required: true
+  branch-name:
+    description: 'Name of the branch'
+    default: 'main'
   github-token:
-    description: "Token to use for GitHub"
+    description: 'Token to use for GitHub'
     required: true
 runs:
   using: 'composite'
@@ -15,7 +21,7 @@ runs:
     - name: Checkout Repository
       uses: actions/checkout@v3
       with:
-        repository: INSO-TUWien/Binocular
+        repository: ${{ inputs.user-name }}/${{ inputs.repo-name }}
         ref: develop
 
     - name: Checkout Repository to scan
@@ -60,10 +66,10 @@ runs:
       shell: bash
 
     - name: Publish artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: binocular_ui
-          path: /home/runner/dist/
+      uses: actions/upload-artifact@v3
+      with:
+        name: binocular_ui
+        path: /home/runner/dist/
 
     - name: Checkout Repository
       uses: actions/checkout@v3

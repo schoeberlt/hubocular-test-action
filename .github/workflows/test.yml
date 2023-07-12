@@ -20,7 +20,9 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: mine
         with:
-          repo-name: 'https://github.com/INSO-TUWien/Binocular.git'
+          user-name: INSO-TUWien
+          repo-name: Binocular
+          branch-name: develop
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish artifact
